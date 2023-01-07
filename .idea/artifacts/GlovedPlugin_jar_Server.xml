@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GlovedPlugin:jar-Server">
+    <output-path>$USER_HOME$/MinecraftPaperServer/plugins/GlovedPlugin.jar</output-path>
+    <root id="archive" name="GlovedPlugin.jar">
+      <element id="module-output" name="GlovedPlugin" />
+    </root>
+  </artifact>
+</component>
