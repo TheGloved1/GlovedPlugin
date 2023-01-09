@@ -1,0 +1,2 @@
+# GlovedPlugin
+Gloves' Minecraft Plugin
