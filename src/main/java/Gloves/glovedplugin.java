@@ -10,6 +10,7 @@ public final class glovedplugin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getLogger().info("GlovedPlugin Started!");
+        getLogger().info("Test");
 
         getCommand("fly").setExecutor(new Fly());
         getCommand("menu").setExecutor(new Menu(this));
