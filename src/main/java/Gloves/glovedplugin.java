@@ -2,7 +2,6 @@ package Gloves;
 
 import Gloves.commands.Fly;
 import Gloves.commands.Menu;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class glovedplugin extends JavaPlugin {
@@ -10,7 +9,7 @@ public final class glovedplugin extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getLogger().info("GlovedPlugin Starting!");
+        getLogger().info("GlovedPlugin Started!");
 
         getCommand("fly").setExecutor(new Fly());
         getCommand("menu").setExecutor(new Menu(this));
@@ -20,7 +19,7 @@ public final class glovedplugin extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        getLogger().info("GlovedPlugin Stopping!");
+        getLogger().info("GlovedPlugin Stopped!");
 
     }
 }
