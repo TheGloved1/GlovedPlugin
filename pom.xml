@@ -64,8 +64,12 @@
         </plugins>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <targetPath>.</targetPath>
                 <filtering>true</filtering>
+                <directory>src/resources/</directory>
+                <includes>
+                    <include>*.yml</include>
+                </includes>
             </resource>
         </resources>
     </build>
@@ -76,12 +80,20 @@
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
         <repository>
+            <id>jitpack</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
         <repository>
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+        <repository>
+            <id>dmulloy2-repo</id>
+            <url>https://repo.dmulloy2.net/repository/public/</url>
         </repository>
     </repositories>
 
@@ -96,6 +108,37 @@
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
             <version>2.11.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.pixeloutlaw</groupId>
+            <artifactId>plumbing-1_19_R2</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.cerus.maps</groupId>
+            <artifactId>bukkit-19_R1</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.cerus.maps</groupId>
+            <artifactId>bukkit-17_R1</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.cerus.maps</groupId>
+            <artifactId>bukkit-18_R2</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.cerus.maps</groupId>
+            <artifactId>bukkit-18_R1</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.comphenix.protocol</groupId>
+            <artifactId>ProtocolLib</artifactId>
+            <version>4.7.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

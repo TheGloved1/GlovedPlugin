@@ -1,6 +1,7 @@
 name: GlovedPlugin
 version: '${project.version}'
 main: Gloves.glovedplugin
+depend: [ ProtocolLib ]
 api-version: 1.19
 commands:
   fly:

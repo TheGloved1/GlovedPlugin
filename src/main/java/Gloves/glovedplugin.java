@@ -2,14 +2,18 @@ package Gloves;
 
 import Gloves.commands.Fly;
 import Gloves.commands.Menu;
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class glovedplugin extends JavaPlugin {
 
+    private ProtocolManager protocolManager;
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getLogger().info("GlovedPlugin Started!");
+        protocolManager = ProtocolLibrary.getProtocolManager();
+        getLogger().info("GlovedPlugin Enabled!");
 
         getCommand("fly").setExecutor(new Fly());
         getCommand("menu").setExecutor(new Menu(this));
@@ -19,7 +23,7 @@ public final class glovedplugin extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        getLogger().info("GlovedPlugin Stopped!");
+        getLogger().info("GlovedPlugin Disabled!");
 
     }
 }
