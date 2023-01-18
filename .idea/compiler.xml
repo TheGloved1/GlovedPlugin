@@ -13,4 +13,9 @@
       <module name="GlovedPlugin" target="18" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="GlovedPlugin" options="" />
+    </option>
+  </component>
 </project>
