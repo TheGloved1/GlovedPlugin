@@ -117,22 +117,7 @@
         </dependency>
         <dependency>
             <groupId>dev.cerus.maps</groupId>
-            <artifactId>bukkit-19_R1</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.cerus.maps</groupId>
-            <artifactId>bukkit-17_R1</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.cerus.maps</groupId>
             <artifactId>bukkit-18_R2</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.cerus.maps</groupId>
-            <artifactId>bukkit-18_R1</artifactId>
             <version>3.4.0</version>
         </dependency>
         <dependency>

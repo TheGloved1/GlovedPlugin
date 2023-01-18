@@ -82,10 +82,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.pixeloutlaw:kindling:2.0.2" level="project" />
-    <orderEntry type="library" name="Maven: dev.cerus.maps:bukkit-19_R1:3.4.0" level="project" />
-    <orderEntry type="library" name="Maven: dev.cerus.maps:bukkit-17_R1:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: dev.cerus.maps:bukkit-18_R2:3.4.0" level="project" />
-    <orderEntry type="library" name="Maven: dev.cerus.maps:bukkit-18_R1:3.4.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.protocol:ProtocolLib:4.7.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.bytebuddy:byte-buddy:1.11.0" level="project" />
   </component>

@@ -15,12 +15,13 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Menu implements Listener, CommandExecutor {
-    private String invName = "Class Selector";
+    private final String invName = "Class Selector";
 
     public Menu(glovedplugin plugin) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
@@ -64,7 +65,7 @@ public class Menu implements Listener, CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String [] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String [] args) {
         if (!(sender instanceof Player player)) {
             sender.sendMessage("Only players can run this command.");
             return true;
