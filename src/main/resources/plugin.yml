@@ -7,9 +7,13 @@ commands:
   fly:
     description: Toggles flying for the command sender.
     usage: /fly
-    aliases: f
+    aliases: [ f ]
     permission: fly
     permission-message: You do not have permission.
   menu:
     description: Opens a custom menu
     usage: /menu
+  damageindicator:
+    description: Main DamageIndicator command
+    usage: /<command> <arguments>
+    aliases: [ di ]
