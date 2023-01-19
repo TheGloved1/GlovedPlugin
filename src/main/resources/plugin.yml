@@ -1,19 +1,19 @@
 name: GlovedPlugin
-version: '${project.version}'
+version: '0.0.1'
 main: Gloves.glovedplugin
-depend: [ ProtocolLib ]
+softdepend:  [ ProtocolLib, HolographicDisplays ]
 api-version: 1.19
 commands:
   fly:
     description: Toggles flying for the command sender.
     usage: /fly
-    aliases: [ f ]
+    aliases: f
     permission: fly
     permission-message: You do not have permission.
   menu:
     description: Opens a custom menu
     usage: /menu
   damageindicator:
-    description: Main DamageIndicator command
+    description: DamageIndicator command
     usage: /<command> <arguments>
-    aliases: [ di ]
+    aliases: di

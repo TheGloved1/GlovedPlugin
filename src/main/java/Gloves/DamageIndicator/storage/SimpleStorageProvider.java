@@ -1,6 +1,6 @@
 package Gloves.DamageIndicator.storage;
 
-import Gloves.DamageIndicator.DIMain;
+import Gloves.glovedplugin;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class SimpleStorageProvider implements StorageProvider {
 
-    private final File dataFile = new File(DIMain.getPlugin(DIMain.class).getDataFolder(), "data.yml");
+    private final File dataFile = new File(glovedplugin.getPlugin(glovedplugin.class).getDataFolder(), "data.yml");
     private final FileConfiguration data;
 
     public SimpleStorageProvider() {

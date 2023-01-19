@@ -8,11 +8,16 @@ import Gloves.DamageIndicator.storage.SimpleStorageProvider;
 import Gloves.DamageIndicator.storage.StorageProvider;
 import Gloves.DamageIndicator.util.CompatUtil;
 import Gloves.DamageIndicator.util.ConfigUpdateHandler;
+import Gloves.commands.Fly;
+import Gloves.commands.Menu;
+import com.comphenix.protocol.events.PacketListener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.plugin.java.JavaPlugin;
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -46,12 +51,16 @@ public class DIMain extends JavaPlugin {
         }
     }
 
+    private ProtocolManager protocolManager;
     @Override
     public void onEnable() {
         reload();
         Objects.requireNonNull(getCommand("damageindicator")).setExecutor(new CommandHandler(this));
         startTasks();
         CompatUtil.onEnable();
+        getLogger().info("GlovedPlugin Enabled!");
+        protocolManager = ProtocolLibrary.getProtocolManager();
+        protocolManager.addPacketListener((PacketListener) new DamageIndicatorListener(this, new HookManager(this)));
     }
 
     @Override

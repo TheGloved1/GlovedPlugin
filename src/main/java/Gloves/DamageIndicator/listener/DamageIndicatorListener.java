@@ -1,11 +1,11 @@
 package Gloves.DamageIndicator.listener;
 
-import Gloves.DamageIndicator.DIMain;
 import Gloves.DamageIndicator.hook.HookManager;
 import Gloves.DamageIndicator.util.CompatUtil;
 import Gloves.DamageIndicator.util.ConfigUtil;
 import Gloves.DamageIndicator.util.EntityHider;
 import Gloves.DamageIndicator.util.EntityHider.Policy;
+import Gloves.glovedplugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -32,7 +32,7 @@ import java.util.logging.Logger;
 public class DamageIndicatorListener implements Listener {
 
     private static final String DISABLED_DI = "DI-DISABLED-DI";
-    private final DIMain plugin;
+    private final glovedplugin plugin;
     private final Map<ArmorStand, Long> armorStands = new LinkedHashMap<>();
     private final Set<EntityType> disabledEntities = new HashSet<>();
     private final Set<CreatureSpawnEvent.SpawnReason> disabledSpawnReasons = new HashSet<>();
@@ -46,7 +46,7 @@ public class DamageIndicatorListener implements Listener {
     private final HookManager hookManager;
     private EntityHider hider;
 
-    public DamageIndicatorListener(DIMain plugin, HookManager hookManager) {
+    public DamageIndicatorListener(glovedplugin plugin, HookManager hookManager) {
         this.plugin = plugin;
         this.hookManager = hookManager;
         armorStandMeta = new FixedMetadataValue(plugin, 0);
@@ -68,7 +68,7 @@ public class DamageIndicatorListener implements Listener {
             try {
                 return EntityType.valueOf(entity.toUpperCase());
             } catch (IllegalArgumentException e) {
-                Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, entity.toUpperCase() + " is not a valid EntityType.");
+                Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, entity.toUpperCase() + " is not a valid EntityType.");
                 return null;
             }
         }).filter(Objects::nonNull).forEach(disabledEntities::add);
@@ -76,7 +76,7 @@ public class DamageIndicatorListener implements Listener {
             try {
                 return CreatureSpawnEvent.SpawnReason.valueOf(reason.toUpperCase());
             } catch (IllegalArgumentException e) {
-                Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, reason.toUpperCase() + " is not a valid SpawnReason.");
+                Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, reason.toUpperCase() + " is not a valid SpawnReason.");
                 return null;
             }
         }).filter(Objects::nonNull).forEach(disabledSpawnReasons::add);
@@ -84,7 +84,7 @@ public class DamageIndicatorListener implements Listener {
             try {
                 return EntityDamageEvent.DamageCause.valueOf(cause);
             } catch (IllegalArgumentException e) {
-                Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, cause.toUpperCase() + " is not a valid DamageCause.");
+                Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, cause.toUpperCase() + " is not a valid DamageCause.");
                 return null;
             }
         }).filter(Objects::nonNull).forEach(disabledDamageCauses::add);

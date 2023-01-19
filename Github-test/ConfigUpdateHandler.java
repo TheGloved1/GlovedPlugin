@@ -1,6 +1,6 @@
 package Gloves.DamageIndicator.util;
 
-import Gloves.DamageIndicator.DIMain;
+import Gloves.glovedplugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
@@ -15,11 +15,11 @@ import java.util.stream.Collectors;
 
 public class ConfigUpdateHandler {
 
-    private final DIMain plugin;
+    private final glovedplugin plugin;
     private final File configFile;
     private final String lineSeparator = System.getProperty("line.separator");
 
-    public ConfigUpdateHandler(DIMain plugin) {
+    public ConfigUpdateHandler(glovedplugin plugin) {
         this.plugin = plugin;
         configFile = new File(plugin.getDataFolder(), "config.yml");
     }
@@ -75,7 +75,7 @@ public class ConfigUpdateHandler {
             plugin.reloadConfig();
             Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&eDamageIndicator config updated to v2."));
         } catch (IOException ex) {
-            Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, "Can't save config v2", ex);
+            Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, "Can't save config v2", ex);
         }
     }
 
@@ -149,7 +149,7 @@ public class ConfigUpdateHandler {
             plugin.reloadConfig();
             Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&eDamageIndicator config updated to v3."));
         } catch (IOException ex) {
-            Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, "Can't save config v3", ex);
+            Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, "Can't save config v3", ex);
         }
     }
 
@@ -232,7 +232,7 @@ public class ConfigUpdateHandler {
             plugin.reloadConfig();
             Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&eDamageIndicator config updated to v4."));
         } catch (IOException ex) {
-            Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, "Can't save config v4", ex);
+            Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, "Can't save config v4", ex);
         }
     }
 }

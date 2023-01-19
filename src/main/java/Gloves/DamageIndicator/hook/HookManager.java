@@ -1,6 +1,6 @@
 package Gloves.DamageIndicator.hook;
 
-import Gloves.DamageIndicator.DIMain;
+import Gloves.glovedplugin;
 import org.bukkit.event.entity.EntityDamageEvent;
 
 import java.util.HashSet;
@@ -13,7 +13,7 @@ public class HookManager {
 
     private final Set<Hook> hooks = new HashSet<>();
 
-    public HookManager(DIMain plugin) {
+    public HookManager(glovedplugin plugin) {
 
     }
 

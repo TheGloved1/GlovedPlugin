@@ -1,6 +1,6 @@
 package Gloves.DamageIndicator.command;
 
-import Gloves.DamageIndicator.DIMain;
+import Gloves.glovedplugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -15,9 +15,9 @@ import org.bukkit.entity.Player;
  */
 public final class CommandHandler implements CommandExecutor {
 
-    private final DIMain plugin;
+    private final glovedplugin plugin;
 
-    public CommandHandler(DIMain plugin) {
+    public CommandHandler(glovedplugin plugin) {
         this.plugin = plugin;
     }
 

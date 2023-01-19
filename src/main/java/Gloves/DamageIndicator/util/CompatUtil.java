@@ -1,6 +1,6 @@
 package Gloves.DamageIndicator.util;
 
-import Gloves.DamageIndicator.DIMain;
+import Gloves.glovedplugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -11,11 +11,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 
-/**
- * Class to manage compatibility with older minecraft versions.
- *
- * @author Beelzebu
- */
+
 public final class CompatUtil {
 
     public static ItemStack RED_INK = null;
@@ -55,10 +51,10 @@ public final class CompatUtil {
         try {
             verInt = Integer.parseInt(ver.split("_")[1]);
         } catch (IllegalArgumentException e) {
-            Bukkit.getScheduler().runTask(DIMain.getPlugin(DIMain.class), () -> {
-                DIMain.getPlugin(DIMain.class).getLogger().warning("An error occurred getting server version, please contact developer.");
-                DIMain.getPlugin(DIMain.class).getLogger().warning("Detected version " + ver);
-                Bukkit.getPluginManager().disablePlugin(DIMain.getPlugin(DIMain.class));
+            Bukkit.getScheduler().runTask(glovedplugin.getPlugin(glovedplugin.class), () -> {
+                glovedplugin.getPlugin(glovedplugin.class).getLogger().warning("An error occurred getting server version, please contact developer.");
+                glovedplugin.getPlugin(glovedplugin.class).getLogger().warning("Detected version " + ver);
+                Bukkit.getPluginManager().disablePlugin(glovedplugin.getPlugin(glovedplugin.class));
             });
         }
         return verInt;

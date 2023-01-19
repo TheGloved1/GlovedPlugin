@@ -1,6 +1,7 @@
 name: GlovedPlugin
 version: '0.0.1'
 main: Gloves.glovedplugin
+depend: [ ProtocolLib ]
 api-version: 1.19
 commands:
   fly:
@@ -12,3 +13,7 @@ commands:
   menu:
     description: Opens a custom menu
     usage: /menu
+  damageindicator:
+    description: DamageIndicator command
+    usage: /<command> <arguments>
+    aliases: di

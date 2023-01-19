@@ -1,8 +1,8 @@
 package Gloves.DamageIndicator.listener;
 
-import Gloves.DamageIndicator.DIMain;
 import Gloves.DamageIndicator.util.CompatUtil;
 import Gloves.DamageIndicator.util.ConfigUtil;
+import Gloves.glovedplugin;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.Cancellable;
@@ -29,7 +29,7 @@ public class BloodListener implements Listener {
 
     private static final String BLOOD_NAME = "di-blood";
     private static final String DISABLED_BLOOD = "DI-DISABLED-BLOOD";
-    private final DIMain plugin;
+    private final glovedplugin plugin;
     private final Map<Item, Long> bloodItems = new LinkedHashMap<>();
     private final Set<EntityType> disabledEntities = new HashSet<>();
     private final Set<CreatureSpawnEvent.SpawnReason> disabledSpawnReasons = new HashSet<>();
@@ -42,7 +42,7 @@ public class BloodListener implements Listener {
     private boolean sneaking = true;
     private Method playEffect;
 
-    public BloodListener(DIMain plugin) {
+    public BloodListener(glovedplugin plugin) {
         this.plugin = plugin;
         if (!CompatUtil.is113orHigher()) {
             try {
@@ -68,7 +68,7 @@ public class BloodListener implements Listener {
             try {
                 return EntityType.valueOf(entity.toUpperCase());
             } catch (IllegalArgumentException e) {
-                Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, entity.toUpperCase() + " is not a valid EntityType.");
+                Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, entity.toUpperCase() + " is not a valid EntityType.");
                 return null;
             }
         }).filter(Objects::nonNull).forEach(disabledEntities::add);
@@ -76,7 +76,7 @@ public class BloodListener implements Listener {
             try {
                 return CreatureSpawnEvent.SpawnReason.valueOf(reason.toUpperCase());
             } catch (IllegalArgumentException e) {
-                Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, reason.toUpperCase() + " is not a valid SpawnReason.");
+                Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, reason.toUpperCase() + " is not a valid SpawnReason.");
                 return null;
             }
         }).filter(Objects::nonNull).forEach(disabledSpawnReasons::add);
@@ -84,7 +84,7 @@ public class BloodListener implements Listener {
             try {
                 return EntityDamageEvent.DamageCause.valueOf(cause);
             } catch (IllegalArgumentException e) {
-                Logger.getLogger(DIMain.class.getName()).log(Level.WARNING, cause.toUpperCase() + " is not a valid DamageCause.");
+                Logger.getLogger(glovedplugin.class.getName()).log(Level.WARNING, cause.toUpperCase() + " is not a valid DamageCause.");
                 return null;
             }
         }).filter(Objects::nonNull).forEach(disabledDamageCauses::add);
@@ -113,7 +113,7 @@ public class BloodListener implements Listener {
             return;
         }
         if (CompatUtil.is113orHigher()) {
-            e.getEntity().getWorld().spawnParticle(Particle.REDSTONE, ((LivingEntity) e.getEntity()).getEyeLocation(), 7, .5, 1, .5, new Particle.DustOptions(Color.RED, 3f));
+            e.getEntity().getWorld().spawnParticle(Particle.REDSTONE, ((LivingEntity) e.getEntity()).getEyeLocation(), 7, .5, 1, .5, new Particle.DustOptions(Color.RED, 1f));
         } else if (CompatUtil.MINOR_VERSION == 8) {
             try {
                 if (playEffect != null) {
