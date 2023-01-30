@@ -88,7 +88,7 @@ public final class CompatUtil {
         armorStand.setMarker(true);
         armorStand.setSmall(true);
         armorStand.setCustomNameVisible(false);
-        armorStand.setMetadata("Mastercode-DamageIndicator", fixedMetadataValue);
+        armorStand.setMetadata("Gloves-DamageIndicator", fixedMetadataValue);
         if (CompatUtil.isCanSetCollidable()) {
             armorStand.setCollidable(false);
             armorStand.setInvulnerable(true);

@@ -8,7 +8,6 @@ import Gloves.DamageIndicator.storage.SimpleStorageProvider;
 import Gloves.DamageIndicator.storage.StorageProvider;
 import Gloves.DamageIndicator.util.CompatUtil;
 import Gloves.DamageIndicator.util.ConfigUpdateHandler;
-import Gloves.commands.Fly;
 import Gloves.commands.Menu;
 import com.comphenix.protocol.events.PacketListener;
 import org.bukkit.Bukkit;

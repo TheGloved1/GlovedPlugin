@@ -9,9 +9,9 @@ Gloves\DamageIndicator\listener\BloodListener.class
 Gloves\glovedplugin.class
 Gloves\commands\Menu.class
 Gloves\DamageIndicator\util\EntityHider$2.class
-Gloves\commands\Fly.class
 Gloves\DamageIndicator\command\CommandHandler.class
 Gloves\DamageIndicator\util\ConfigUtil.class
+Gloves\commands\Menu$1.class
 Gloves\DamageIndicator\listener\DamageIndicatorListener.class
 Gloves\DamageIndicator\hook\Hook.class
 Gloves\DamageIndicator\util\EntityHider.class

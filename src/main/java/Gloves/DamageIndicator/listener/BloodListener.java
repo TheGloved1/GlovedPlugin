@@ -22,9 +22,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * @author Beelzebu
- */
+
 public class BloodListener implements Listener {
 
     private static final String BLOOD_NAME = "di-blood";
@@ -113,7 +111,7 @@ public class BloodListener implements Listener {
             return;
         }
         if (CompatUtil.is113orHigher()) {
-            e.getEntity().getWorld().spawnParticle(Particle.REDSTONE, ((LivingEntity) e.getEntity()).getEyeLocation(), 7, .5, 1, .5, new Particle.DustOptions(Color.RED, 1f));
+            e.getEntity().getWorld().spawnParticle(Particle.REDSTONE, ((LivingEntity) e.getEntity()).getEyeLocation(), 5, .5, 1, .5, new Particle.DustOptions(Color.RED, 3f));
         } else if (CompatUtil.MINOR_VERSION == 8) {
             try {
                 if (playEffect != null) {

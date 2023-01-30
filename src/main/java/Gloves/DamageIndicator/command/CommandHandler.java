@@ -10,9 +10,6 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-/**
- * @author YitanTribal
- */
 public final class CommandHandler implements CommandExecutor {
 
     private final glovedplugin plugin;

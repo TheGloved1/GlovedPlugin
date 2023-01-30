@@ -7,10 +7,7 @@ import Gloves.DamageIndicator.listener.DamageIndicatorListener;
 import Gloves.DamageIndicator.storage.SimpleStorageProvider;
 import Gloves.DamageIndicator.storage.StorageProvider;
 import Gloves.DamageIndicator.util.CompatUtil;
-import Gloves.commands.Fly;
 import Gloves.commands.Menu;
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
@@ -48,20 +45,40 @@ public class glovedplugin extends JavaPlugin {
     }
 
 
-    private ProtocolManager protocolManager;
-
     @Override
     public void onEnable() {
         // Plugin startup logic
         reload();
         Objects.requireNonNull(getCommand("damageindicator")).setExecutor(new CommandHandler(this));
+        Objects.requireNonNull(getCommand("menu")).setExecutor(new Menu(this));
         startTasks();
         CompatUtil.onEnable();
-        protocolManager = ProtocolLibrary.getProtocolManager();
-        getLogger().info("GlovedPlugin Enabled!");
 
-        getCommand("fly").setExecutor(new Fly());
-        getCommand("menu").setExecutor(new Menu(this));
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            /*
+             * We register the EventListener here, when PlaceholderAPI is installed.
+             * Since all events are in the main class (this class), we simply use "this"
+             */
+            getLogger().info("PlaceholderAPI is installed!");
+            Bukkit.getPluginManager().registerEvents(bloodListener, this);
+            Bukkit.getPluginManager().registerEvents(damageIndicatorListener, this);
+            getLogger().info("Events registered!");
+            getLogger().info("");
+            getLogger().info("============================");
+            getLogger().info("GlovedPlugin Enabled!");
+            getLogger().info("");
+            getLogger().info("============================");
+
+        } else {
+            /*
+             * We inform about the fact that PlaceholderAPI isn't installed and then
+             * disable this plugin to prevent issues.
+             */
+            getLogger().warning("Could not find PlaceholderAPI! This plugin is required.");
+            Bukkit.getPluginManager().disablePlugin(this);
+            getLogger().warning("GlovedPlugin Disabled!");
+        }
+
 
     }
 

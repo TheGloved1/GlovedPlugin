@@ -20,23 +20,19 @@ import org.bukkit.event.world.ChunkUnloadEvent;
 import org.bukkit.plugin.Plugin;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 
 import static com.comphenix.protocol.PacketType.Play.Server.*;
 
-/**
- * Original source: https://gist.github.com/aadnk/5871793
- *
- * @author aadnk
- */
+
 public class EntityHider implements Listener {
 
     // Packets that update remote player entities
     private static final PacketType[] ENTITY_PACKETS = {
             ENTITY_EQUIPMENT, ANIMATION, NAMED_ENTITY_SPAWN,
             COLLECT, SPAWN_ENTITY, SPAWN_ENTITY_LIVING, SPAWN_ENTITY_PAINTING, SPAWN_ENTITY_EXPERIENCE_ORB,
-            ENTITY_VELOCITY, REL_ENTITY_MOVE, ENTITY_LOOK, ENTITY_MOVE_LOOK, ENTITY_MOVE_LOOK,
+            ENTITY_VELOCITY, REL_ENTITY_MOVE, ENTITY_LOOK, REL_ENTITY_MOVE_LOOK, REL_ENTITY_MOVE_LOOK,
             ENTITY_TELEPORT, ENTITY_HEAD_ROTATION, ENTITY_STATUS, ATTACH_ENTITY, ENTITY_METADATA,
             ENTITY_EFFECT, REMOVE_ENTITY_EFFECT, BLOCK_BREAK_ANIMATION
 
@@ -79,15 +75,13 @@ public class EntityHider implements Listener {
      * @return TRUE if the entity was visible before this method call, FALSE otherwise.
      */
     private boolean setVisibility(Player observer, int entityID, boolean visible) {
-        switch (policy) {
-            case BLACKLIST:
+        return switch (policy) {
+            case BLACKLIST ->
                 // Non-membership means they are visible
-                return !setMembership(observer, entityID, !visible);
-            case WHITELIST:
-                return setMembership(observer, entityID, visible);
-            default:
-                throw new IllegalArgumentException("Unknown policy: " + policy);
-        }
+                    !setMembership(observer, entityID, !visible);
+            case WHITELIST -> setMembership(observer, entityID, visible);
+            default -> throw new IllegalArgumentException("Unknown policy: " + policy);
+        };
     }
 
     /**
@@ -234,7 +228,7 @@ public class EntityHider implements Listener {
 
         // Resend packets
         if (manager != null && hiddenBefore) {
-            manager.updateEntity(entity, Arrays.asList(observer));
+            manager.updateEntity(entity, Collections.singletonList(observer));
         }
         return hiddenBefore;
     }

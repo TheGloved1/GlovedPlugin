@@ -71,5 +71,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.protocol:ProtocolLib:4.7.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.bytebuddy:byte-buddy:1.11.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: me.filoghost.holographicdisplays:holographicdisplays-api:3.0.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.github.Archy-X:AureliumSkills:Beta1.3.11" level="project" />
   </component>
 </module>
