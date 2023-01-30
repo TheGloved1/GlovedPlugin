@@ -65,6 +65,7 @@ public class glovedplugin extends JavaPlugin {
             getLogger().info("Events registered!");
             getLogger().info("");
             getLogger().info("============================");
+            getLogger().info("");
             getLogger().info("GlovedPlugin Enabled!");
             getLogger().info("");
             getLogger().info("============================");
