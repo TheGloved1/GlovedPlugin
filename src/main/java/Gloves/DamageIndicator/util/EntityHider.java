@@ -25,6 +25,10 @@ import java.util.Map;
 
 import static com.comphenix.protocol.PacketType.Play.Server.*;
 
+/**
+ * @author Beelzebu
+ */
+
 
 public class EntityHider implements Listener {
 

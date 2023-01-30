@@ -11,6 +11,9 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 
+/**
+ * @author Beelzebu
+ */
 
 public final class CompatUtil {
 

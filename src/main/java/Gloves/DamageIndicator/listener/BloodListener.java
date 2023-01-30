@@ -22,6 +22,10 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author Beelzebu
+ */
+
 
 public class BloodListener implements Listener {
 
@@ -165,7 +169,7 @@ public class BloodListener implements Listener {
             is.setItemMeta(meta);
             Item item = e.getEntity().getWorld().dropItemNaturally(e.getEntity().getLocation(), is);
             item.setPickupDelay(Integer.MAX_VALUE);
-            item.setVelocity(new Vector(random.nextDouble() * 0.1, 0.4, random.nextDouble() * 0.1));
+            item.setVelocity(new Vector(random.nextDouble() * 0.1, 0.3, random.nextDouble() * 0.1));
             bloodItems.put(item, System.currentTimeMillis());
         }
     }

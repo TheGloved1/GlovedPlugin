@@ -26,6 +26,10 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author Beelzebu
+ */
+
 public class DamageIndicatorListener implements Listener {
 
     private static final String DISABLED_DI = "DI-DISABLED-DI";

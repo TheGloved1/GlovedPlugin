@@ -5,6 +5,10 @@ import org.bukkit.event.entity.EntityDamageEvent;
 
 import java.util.Set;
 
+/**
+ * @author Beelzebu
+ */
+
 public final class ConfigUtil {
 
     public static boolean isShowIndicator(Entity entity, EntityDamageEvent.DamageCause damageCause, double damage, String metadataTag, boolean enabled, boolean enablePlayer, boolean sneaking, boolean enableMonster, boolean enableAnimal, Set<EntityType> disabledEntities, Set<EntityDamageEvent.DamageCause> disabledDamageCauses) {

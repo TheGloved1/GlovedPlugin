@@ -76,6 +76,7 @@ public class glovedplugin extends JavaPlugin {
              * disable this plugin to prevent issues.
              */
             getLogger().warning("Could not find PlaceholderAPI! This plugin is required.");
+            getLogger().info("Disabling GlovedPlugin!");
             Bukkit.getPluginManager().disablePlugin(this);
             getLogger().warning("GlovedPlugin Disabled!");
         }
