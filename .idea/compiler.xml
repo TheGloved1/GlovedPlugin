@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="GlovedPlugin" target="18" />
+      <module name="GlovedPlugin" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

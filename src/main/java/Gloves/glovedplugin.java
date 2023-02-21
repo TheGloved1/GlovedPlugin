@@ -8,20 +8,30 @@ import Gloves.DamageIndicator.storage.SimpleStorageProvider;
 import Gloves.DamageIndicator.storage.StorageProvider;
 import Gloves.DamageIndicator.util.CompatUtil;
 import Gloves.commands.Menu;
+import com.archyx.aureliumskills.AureliumSkills;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
-public class glovedplugin extends JavaPlugin {
+
+public class glovedplugin extends JavaPlugin implements Listener {
 
     private DamageIndicatorListener damageIndicatorListener;
     private BloodListener bloodListener;
     private StorageProvider storageProvider = null;
+    private static AureliumSkills AureliumSkillsAPI;
+
+    public static void setAureliumSkillsAPI(AureliumSkills aureliumSkillsAPI) {
+        AureliumSkillsAPI = aureliumSkillsAPI;
+    }
+
 
     public void reload() {
         reloadConfig();
@@ -42,6 +52,9 @@ public class glovedplugin extends JavaPlugin {
         } else if (getConfig().getBoolean("Blood.Enabled")) {
             Bukkit.getPluginManager().registerEvents(bloodListener = new BloodListener(this), this);
         }
+        if (AureliumSkillsAPI == null) {
+            AureliumSkillsAPI = new AureliumSkills();
+        }
     }
 
 
@@ -49,11 +62,12 @@ public class glovedplugin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         reload();
+        setAureliumSkillsAPI(AureliumSkillsAPI);
+        getLogger().info("AureliumSkillsAPI Loaded!");
         Objects.requireNonNull(getCommand("damageindicator")).setExecutor(new CommandHandler(this));
         Objects.requireNonNull(getCommand("menu")).setExecutor(new Menu(this));
         startTasks();
         CompatUtil.onEnable();
-
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             /*
              * We register the EventListener here, when PlaceholderAPI is installed.
@@ -62,13 +76,14 @@ public class glovedplugin extends JavaPlugin {
             getLogger().info("PlaceholderAPI is installed!");
             Bukkit.getPluginManager().registerEvents(bloodListener, this);
             Bukkit.getPluginManager().registerEvents(damageIndicatorListener, this);
-            getLogger().info("Events registered!");
-            getLogger().info("");
-            getLogger().info("============================");
-            getLogger().info("");
-            getLogger().info("GlovedPlugin Enabled!");
-            getLogger().info("");
-            getLogger().info("============================");
+            getLogger().info("DamageIndicator Loaded!");
+            getLogger().info(" ");
+            getLogger().info("*******************************************");
+            getLogger().info("*");
+            getLogger().info("* GlovedPlugin Enabled! ");
+            getLogger().info("*");
+            getLogger().info("*******************************************");
+            getLogger().info(" ");
 
         } else {
             /*
@@ -92,6 +107,11 @@ public class glovedplugin extends JavaPlugin {
         if (bloodListener != null) {
             bloodListener.getBloodItems().forEach((item, time) -> item.remove());
         }
+    }
+
+    public void registerEvents() {
+        PluginManager pm = getServer().getPluginManager();
+
     }
 
 

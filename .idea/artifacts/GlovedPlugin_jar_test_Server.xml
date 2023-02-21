@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="GlovedPlugin:jar-Server">
-    <output-path>$USER_HOME$/FTP Transfer</output-path>
+  <artifact type="jar" name="GlovedPlugin:jar-test-Server">
+    <output-path>$USER_HOME$/MinecraftTestServer/plugins</output-path>
     <root id="archive" name="GlovedPlugin.jar">
       <element id="module-output" name="GlovedPlugin" />
     </root>
