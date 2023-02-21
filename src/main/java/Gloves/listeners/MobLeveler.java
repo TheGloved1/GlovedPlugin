@@ -3,7 +3,6 @@ package Gloves.listeners;
 import Gloves.glovedplugin;
 import com.archyx.aureliumskills.api.AureliumAPI;
 import com.archyx.aureliumskills.skills.Skills;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -12,17 +11,12 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
-import java.util.List;
-
 import static org.apache.logging.log4j.LogManager.getLogger;
 
 public class MobLeveler implements Listener {
 
 
-    private final glovedplugin plugin;
-
     public MobLeveler(glovedplugin plugin) {
-        this.plugin = plugin;
         getLogger().info("MobLeveler loaded!");
     }
 
@@ -40,12 +34,6 @@ public class MobLeveler implements Listener {
             entity.setHealth(entity.getMaxHealth());
             entity.setCustomName("&f[&8Lvl" + mobLevel + "&f] " + type);
         }
-
-        List<Entity> NearbyPlayers = event.getEntity().getNearbyEntities(20, 20, 20).stream().();
-        if (NearbyPlayers.stream().filter(EntityType.PLAYER)) {
-
-        }
-    }
 
     }
 
